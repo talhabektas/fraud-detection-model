@@ -80,6 +80,11 @@ temp/
 
 # Documentation (keep markdown, ignore generated PDFs)
 *.pdf
+docs/
+
+# Homework/Assignment files
+ödev dosyaları/
+*ödev*/
 
 # Ivy cache (Spark dependencies)
 .ivy2/
