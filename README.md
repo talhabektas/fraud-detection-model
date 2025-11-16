@@ -1,104 +1,109 @@
-# 🚨 Real-Time Credit Card Fraud Detection System# 🚨 Real-Time Credit Card Fraud Detection System
+# 🚨 Real-Time Credit Card Fraud Detection System
 
-
-
-<p align="center">## 📊 Overview
-
-  <img src="https://img.shields.io/badge/Python-3.10-blue.svg" alt="Python">Bu proje, **Apache Kafka** ve **Apache Spark Streaming** kullanarak gerçek zamanlı kredi kartı dolandırıcılık tespiti yapan bir veri analitik sistemidir.
-
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10-blue.svg" alt="Python">
   <img src="https://img.shields.io/badge/Apache_Kafka-7.5.0-red.svg" alt="Kafka">
-
-  <img src="https://img.shields.io/badge/Apache_Spark-3.4.1-orange.svg" alt="Spark">## 🏗️ Architecture
-
+  <img src="https://img.shields.io/badge/Apache_Spark-3.4.1-orange.svg" alt="Spark">
   <img src="https://img.shields.io/badge/MongoDB-7.0-green.svg" alt="MongoDB">
+  <img src="https://img.shields.io/badge/Streamlit-1.27-ff4b4b.svg" alt="Streamlit">
+  <img src="https://img.shields.io/badge/License-Educational-yellow.svg" alt="License">
+</p>
 
-  <img src="https://img.shields.io/badge/Streamlit-1.27-ff4b4b.svg" alt="Streamlit">```
+<p align="center">
+  <strong>End-to-End Real-Time Fraud Detection with Streaming ML Pipeline</strong>
+</p>
 
-  <img src="https://img.shields.io/badge/License-Educational-yellow.svg" alt="License">┌─────────────┐      ┌──────────────┐      ┌─────────────────┐      ┌──────────────┐
+---
 
-</p>│   Producer  │─────>│    Kafka     │─────>│ Spark Streaming │─────>│   MongoDB    │
+## 📊 Overview
 
-│ (CSV Data)  │      │   Broker     │      │   + ML Model    │      │  (Results)   │
+Bu proje, **Apache Kafka** ve **Apache Spark Streaming** kullanarak gerçek zamanlı kredi kartı dolandırıcılık tespiti yapan bir veri analitik sistemidir.
 
-<p align="center">└─────────────┘      └──────────────┘      └─────────────────┘      └──────────────┘
+**Key Highlights:**
+- ⚡ Real-time transaction processing
+- 🤖 ML-powered fraud detection (99% accuracy)
+- 📊 Live monitoring dashboard
+- 🐳 Dockerized infrastructure
+- 📈 Handles class imbalance with SMOTE
+- 🔄 End-to-end streaming pipeline
 
-  <strong>End-to-End Real-Time Fraud Detection with Streaming ML Pipeline</strong>                                                     │
+---
 
-</p>                                                     ▼
-
-                                            ┌─────────────────┐
-
----                                            │   Dashboard     │
-
-                                            │  (Monitoring)   │
-
-## 📋 Table of Contents                                            └─────────────────┘
+## 🏗️ Architecture
 
 ```
+┌─────────────┐      ┌──────────────┐      ┌─────────────────┐      ┌──────────────┐
+│   Producer  │─────>│    Kafka     │─────>│ Spark Streaming │─────>│   MongoDB    │
+│ (CSV Data)  │      │   Broker     │      │   + ML Model    │      │  (Results)   │
+└─────────────┘      └──────────────┘      └─────────────────┘      └──────────────┘
+                                                     │
+                                                     ▼
+                                            ┌─────────────────┐
+                                            │   Dashboard     │
+                                            │  (Monitoring)   │
+                                            └─────────────────┘
+```
+
+---
+
+## 📋 Table of Contents
 
 - [Overview](#-overview)
-
-- [Features](#-features)## 🎯 Features
-
-- [Architecture](#️-architecture)- ✅ **Real-time Streaming**: Kafka ile gerçek zamanlı veri akışı
-
-- [Tech Stack](#️-tech-stack)- ✅ **ML-Powered Detection**: Class imbalance için SMOTE + Random Forest/XGBoost
-
-- [Dataset](#-dataset)- ✅ **Scalable Processing**: Apache Spark ile dağıtık veri işleme
-
-- [Performance](#-performance)- ✅ **Persistent Storage**: MongoDB ile sonuçların saklanması
-
-- [Quick Start](#-quick-start)- ✅ **Live Monitoring**: Dashboard ile canlı izleme
-
-- [Documentation](#-documentation)- ✅ **Dockerized**: Tüm servisler Docker ile kolay kurulum
-
+- [Architecture](#️-architecture)
+- [Features](#-features)
+- [Tech Stack](#️-tech-stack)
+- [Dataset](#-dataset)
+- [Performance](#-performance)
+- [Quick Start](#-quick-start)
+- [Documentation](#-documentation)
 - [Project Structure](#-project-structure)
-
-- [License](#-license)## 📁 Project Structure
-
+- [License](#-license)
 - [Author](#-author)
 
+---
+
+## 🎯 Features
+
+- ✅ **Real-time Streaming**: Kafka ile gerçek zamanlı veri akışı
+- ✅ **ML-Powered Detection**: Class imbalance için SMOTE + Random Forest/XGBoost
+- ✅ **Scalable Processing**: Apache Spark ile dağıtık veri işleme
+- ✅ **Persistent Storage**: MongoDB ile sonuçların saklanması
+- ✅ **Live Monitoring**: Dashboard ile canlı izleme
+- ✅ **Dockerized**: Tüm servisler Docker ile kolay kurulum
+
+---
+
+## 📁 Project Structure
+
+```
+fraud/
+├── data/
+│   └── creditcard.csv              # Kaggle Credit Card Fraud Dataset (284K transactions)
+├── src/
+│   ├── producer/
+│   │   └── kafka_producer.py       # CSV'den Kafka'ya veri gönderimi
+│   ├── consumer/
+│   │   └── spark_consumer.py       # Spark Streaming + ML prediction
+│   ├── ml_model/
+│   │   ├── train_model.py          # Model eğitimi
+│   │   ├── preprocessing.py        # Data preprocessing & SMOTE
+│   │   └── model.pkl               # Trained model (saved)
+│   └── dashboard/
+│       └── app.py                  # Streamlit dashboard
+├── docker/
+│   └── docker-compose.yml          # Kafka, Zookeeper, MongoDB
+├── notebooks/
+│   └── eda.ipynb                   # Exploratory Data Analysis
+├── requirements.txt                # Python dependencies
+└── README.md                       # This file
 ```
 
----fraud/
+---
 
-├── data/
+## 🛠️ Tech Stack
 
-## 🎯 Overview│   └── creditcard.csv              # Kaggle Credit Card Fraud Dataset (284K transactions)
-
-├── src/
-
-A production-ready **Real-Time Fraud Detection System** that processes credit card transactions using **Apache Kafka** for streaming, **Apache Spark** for distributed processing, and **Machine Learning** for fraud prediction. Built as a university Data Analytics project showcasing modern data engineering practices.│   ├── producer/
-
-│   │   └── kafka_producer.py       # CSV'den Kafka'ya veri gönderimi
-
-**Key Highlights:**│   ├── consumer/
-
-- ⚡ Real-time transaction processing│   │   └── spark_consumer.py       # Spark Streaming + ML prediction
-
-- 🤖 ML-powered fraud detection (99% accuracy)│   ├── ml_model/
-
-- 📊 Live monitoring dashboard│   │   ├── train_model.py          # Model eğitimi
-
-- 🐳 Dockerized infrastructure│   │   ├── preprocessing.py        # Data preprocessing & SMOTE
-
-- 📈 Handles class imbalance with SMOTE│   │   └── model.pkl               # Trained model (saved)
-
-- 🔄 End-to-end streaming pipeline│   └── dashboard/
-
-│       └── app.py                  # Streamlit/Flask dashboard
-
----├── docker/
-
-│   └── docker-compose.yml          # Kafka, Zookeeper, MongoDB
-
-## ✨ Features├── notebooks/
-
-│   └── eda.ipynb                   # Exploratory Data Analysis
-
-### Core Capabilities├── requirements.txt                # Python dependencies
-
-- **Real-Time Streaming**: Apache Kafka message queue with 3 partitions└── README.md                       # This file
+### Core Capabilities
+- **Real-Time Streaming**: Apache Kafka message queue with 3 partitions
 
 - **Distributed Processing**: Apache Spark Structured Streaming```
 
