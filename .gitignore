@@ -1,0 +1,88 @@
+# .gitignore for Fraud Detection Project
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+fraud/  # conda environment backups
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# ML Models
+src/ml_model/*.pkl
+src/ml_model/*.npy
+src/ml_model/*.png
+src/ml_model/*.joblib
+
+# Logs
+logs/
+*.log
+*.pid
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Spark
+metastore_db/
+derby.log
+spark-warehouse/
+
+# Kafka & Streaming
+/tmp/fraud_detection_checkpoint/
+checkpoint/
+
+# MongoDB
+*.bson
+
+# Data (large files - add to Git LFS or host separately)
+data/creditcard.csv
+
+# Environment variables
+.env
+.env.local
+
+# Temporary files
+*.tmp
+temp/
+
+# Documentation (keep markdown, ignore generated PDFs)
+*.pdf
+
+# Ivy cache (Spark dependencies)
+.ivy2/
+
+# Python compiled
+*.pyc
