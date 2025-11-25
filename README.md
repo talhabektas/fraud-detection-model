@@ -139,7 +139,8 @@ fraud/
 
 - **Features**: 30 (Time, V1-V28 PCA, Amount, Class)
 
-```- **Target**: Class (0=Normal, 1=Fraud)
+```bash
+- **Target**: Class (0=Normal, 1=Fraud)
 
 ┌─────────────────┐- **Imbalance**: ~0.17% fraud (highly imbalanced)
 
@@ -151,8 +152,9 @@ fraud/
 
          │ Kafka Streaming### 1. Prerequisites
 
-         ▼```bash
-
+         ▼
+```
+```bash
 ┌─────────────────┐# Python 3.9+
 
 │  Apache Kafka   │  3 partitions# Docker & Docker Compose
@@ -163,9 +165,11 @@ fraud/
 
          │ Stream consume
 
-         ▼### 2. Setup Infrastructure
-
-┌─────────────────┐```bash
+         ▼
+```
+### 2. Setup Infrastructure
+```bash
+┌─────────────────┐
 
 │ Spark Streaming │  Micro-batch processing# Start Kafka, Zookeeper, MongoDB
 
@@ -173,21 +177,24 @@ fraud/
 
 │                 │  Fraud predictiondocker-compose up -d
 
-└────────┬────────┘```
+└────────┬────────┘
 
          │ Save results
 
-         ▼### 3. Install Dependencies
-
-┌─────────────────┐      ┌─────────────────┐```bash
+         ▼
+```
+### 3. Install Dependencies
+```bash
+┌─────────────────┐      ┌─────────────────┐
 
 │    MongoDB      │─────▶│   Streamlit     │pip install -r requirements.txt
 
-│  (Predictions)  │      │   Dashboard     │```
+│  (Predictions)  │      │   Dashboard     │
 
 └─────────────────┘      └─────────────────┘
+```
 
-```### 4. Train ML Model
+### 4. Train ML Model
 
 ```bash
 
@@ -199,27 +206,32 @@ fraud/
 
 ### 5. Start Producer (Stream Data)
 
-### Data Streaming```bash
+### Data Streaming
+```bash
 
 - **Apache Kafka 7.5.0**: Distributed messaging systempython src/producer/kafka_producer.py
 
-- **Zookeeper**: Kafka coordination service```
+- **Zookeeper**: Kafka coordination service
 
 - **Kafka-Python**: Producer client
+```
 
 ### 6. Start Consumer (Process & Predict)
 
-### Stream Processing```bash
+### Stream Processing
+```bash
 
 - **Apache Spark 3.4.1**: Distributed computing enginespark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0 \
 
 - **PySpark**: Python API for Spark  src/consumer/spark_consumer.py
 
-- **Spark Structured Streaming**: Real-time data processing```
+- **Spark Structured Streaming**: Real-time data processing
+```
 
 
 
-### Machine Learning### 7. Launch Dashboard
+### Machine Learning
+### 7. Launch Dashboard
 
 - **Scikit-learn 1.3.0**: ML algorithms and preprocessing```bash
 
@@ -267,7 +279,8 @@ fraud/
 
 
 
-**Source**: [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/mlg-ulb/creditcardfraud)| Metric | Score |
+**Source**: [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/mlg-ulb/creditcardfraud)
+|Metric | Score |
 
 |--------|-------|
 
@@ -283,7 +296,8 @@ fraud/
 
 
 
-**Challenges Addressed**:## 🎥 Demo
+**Challenges Addressed**:
+## 🎥 Demo
 
 - Extreme class imbalance → SMOTE resampling
 
@@ -291,55 +305,50 @@ fraud/
 
 - Real-world transaction patterns → Realistic streaming simulation
 
-## 📝 Documentation
+
+
+# 📈 Project Performance Overview
+
+## 🚀 Model Performance (Test Set)
+
+**Codebase Summary**
+- **Total Code Lines:** ~1,300+ Python LOC  
+- **Files:** 13 core files  
+- **Technologies:** 10+ different tech stack components  
+- **Dataset Size:** 284,807 transactions  
+- **Model Accuracy:** ~99%  
+- **Processing Speed:** 500–2000 tx/s  
+
+### 🔍 Metrics
+
+| Metric        | Score   |
+|---------------|---------|
+| **Accuracy**  | 99.97%  |
+| **Precision** | 78.3%   |
+| **Recall**    | 84.7%   |
+| **F1-Score**  | 81.4%   |
+| **ROC-AUC**   | 96.9%   |
 
 ---
 
-Detaylı proje dokümantasyonu için `docs/project_report.pdf` dosyasına bakınız.
+## 📊 Confusion Matrix (Test Set)
 
-## 📈 Performance
-
-## � Project Stats
-
-### Model Metrics (Test Set)
-
-- **Total Code Lines**: ~1,300+ Python LOC
-
-| Metric | Score |- **Files**: 13 core files
-
-|--------|-------|- **Technologies**: 10+ different tech stack
-
-| **Accuracy** | 99.97% |- **Dataset Size**: 284,807 transactions
-
-| **Precision** | 78.3% |- **Model Accuracy**: ~99%
-
-| **Recall** | 84.7% |- **Processing Speed**: 500-2000 tx/s
-
-| **F1-Score** | 81.4% |
-
-| **ROC-AUC** | 96.9% |
-
-## 🙏 Acknowledgments
-
-### System Performance
-
-- Dataset: [Kaggle Credit Card Fraud Detection](https://www.kaggle.com/mlg-ulb/creditcardfraud)
-
-| Metric | Value |- University: Data Analytics Course Project
-
-|--------|-------|
-| **Throughput** | 500-2000 tx/s |
-| **Latency** | <500ms end-to-end |
-| **Model Inference** | ~10ms per batch |
-| **Kafka Partitions** | 3 |
-
-**Confusion Matrix (Test Set)**:
-- True Negatives: 56,841
-- False Positives: 23
-- False Negatives: 15
-- True Positives: 83
+|                | Predicted Negative | Predicted Positive |
+|----------------|--------------------|--------------------|
+| **Actual Negative** | 56,841 (TN)       | 23 (FP)            |
+| **Actual Positive** | 15 (FN)           | 83 (TP)            |
 
 ---
+
+# ⚙️ System Performance
+
+- **Throughput:** 500–2000 tx/s  
+- **Latency:** <500 ms end-to-end  
+- **Model Inference Time:** ~10 ms per batch  
+- **Kafka Partitions:** 3  
+
+---
+
 
 ## 🚀 Quick Start
 
@@ -494,9 +503,6 @@ If you found this project helpful, please consider giving it a star! ⭐
 
 ---
 
-<p align="center">
-  <strong>Built with ❤️ for learning and exploration</strong>
-</p>
 
 <p align="center">
   Made with Apache Kafka • Spark • MongoDB • Python
