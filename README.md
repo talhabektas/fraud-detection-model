@@ -296,17 +296,6 @@ fraud/
 
 
 
-**Challenges Addressed**:
-## 🎥 Demo
-
-- Extreme class imbalance → SMOTE resampling
-
-- PCA-transformed features → Additional feature engineering[TODO: GIF/Video of real-time fraud detection dashboard]
-
-- Real-world transaction patterns → Realistic streaming simulation
-
-
-
 # 📈 Project Performance Overview
 
 ## 🚀 Model Performance (Test Set)
