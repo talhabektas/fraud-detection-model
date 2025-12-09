@@ -236,10 +236,6 @@ model = RandomForestClassifier(
                                                           └──────────────┘
 ```
 
-**📸 SCREENSHOT 1: Architecture Overview**
-> Buraya docker container'ların listesini ekle:
-> Terminal'de `docker ps` komutunun çıktısı
-> (Kafka, Zookeeper, MongoDB, Mongo Express container'larını gösterir)
 
 ### 5.2 Component Description
 
@@ -407,10 +403,7 @@ model = RandomForestClassifier(
 └─────────────────┴──────────┘
 ```
 
-**📸 SCREENSHOT 2: Model Training Results**
-> Buraya model eğitimi sırasında terminal çıktısını ekle:
-> `python src/ml_model/train_model.py` komutunun sonuçları
-> (Metrics, ROC-AUC score, confusion matrix gösterir)
+
 
 **Confusion Matrix (Test Set):**
 ```
@@ -458,15 +451,7 @@ Detection Rate: 100%
 False Positive Rate: 0%
 ```
 
-**📸 SCREENSHOT 3: Kafka Producer in Action**
-> Buraya Producer'ın çalışırken terminal çıktısını ekle:
-> `python src/producer/kafka_producer.py --limit 500` çıktısı
-> (Transaction streaming, rate, progress bar gösterir)
 
-**📸 SCREENSHOT 4: Spark Consumer Processing**
-> Buraya Spark Consumer'ın çalışırken terminal çıktısını ekle:
-> `spark-submit src/consumer/spark_consumer.py` çıktısı
-> (Batch processing, predictions, MongoDB writes gösterir)
 
 **Example Fraud Detection:**
 ```
@@ -476,16 +461,6 @@ Prediction: FRAUD
 Probability: 99.92%
 Status: ✅ Correctly detected
 ```
-
-**📸 SCREENSHOT 5: Streamlit Dashboard**
-> Buraya Dashboard'un tam ekran görüntüsünü ekle:
-> http://localhost:8501 sayfası
-> (Metrics, fraud alerts, transaction history, charts gösterir)
-
-**📸 SCREENSHOT 6: MongoDB Data**
-> Buraya MongoDB Express'ten veri görüntüsünü ekle:
-> http://localhost:8081 - fraud_detection database - predictions collection
-> (Stored predictions, transaction details gösterir)
 
 ### 8.4 SMOTE Impact Analysis
 
@@ -544,10 +519,6 @@ Max (100/s)   100 tx/s      152ms      98%
    - Flexible schema for predictions
    - Easy dashboard integration
 
-**📸 SCREENSHOT 7: Spark UI (Optional but Impressive)**
-> Buraya Spark Web UI'ın görüntüsünü ekle:
-> http://localhost:4040 - Streaming tab veya Jobs tab
-> (Batch processing stats, streaming queries, execution timeline gösterir)
 
 ---
 
